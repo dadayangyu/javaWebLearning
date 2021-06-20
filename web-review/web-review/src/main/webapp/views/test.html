@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#test_form").submit(function () {
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    // 输出接收到的文字数据
+                    console.log(xhr.responseText);
+                }
+                xhr.onerror = function () {
+                    console.log("请求出错");
+                }
+                // 发送异步 GET 请求
+                xhr.open("GET", "../test5", true);
+                xhr.send();
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+
+<form id="test_form">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
